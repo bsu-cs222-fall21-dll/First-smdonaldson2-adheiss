@@ -1,4 +1,4 @@
-package cs222.bsu.edu;
+package cs222.bsu.edu.wikipedia;
 
 public class RevisionFormatter {
 }
