@@ -16,6 +16,5 @@ public class SampleTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         Assertions.assertEquals("Hello",userInput.getInput());
-
     }
 }
