@@ -2,7 +2,8 @@ plugins {
     id 'java'
 }
 
-
+group 'org.example'
+version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
@@ -10,7 +11,12 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-    implementation  'org.fastily:jwiki:1.8.0'
+    //Operation Last Day
+    //implementation  'org.fastily:jwiki:1.8.0'
+    implementation 'com.jayway.jsonpath:json-path:2.5.0'
+
+
+
 }
 
 test {
