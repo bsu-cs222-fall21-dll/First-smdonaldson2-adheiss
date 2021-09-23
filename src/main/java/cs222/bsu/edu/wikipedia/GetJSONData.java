@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class GetJSONData {
+
     public String getSiteData(URL url){
         String json = null;
         try{
@@ -19,6 +20,8 @@ public class GetJSONData {
             connection.connect();
 
             //gets json data from url and converts to string
+
+
             InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
 
@@ -27,11 +30,13 @@ public class GetJSONData {
             ex.printStackTrace();
         }
         return json;
+
     }
     //converts json data to string
     private static String streamToString(InputStream inputStream){
         return new Scanner(inputStream, StandardCharsets.UTF_8).useDelimiter("\\Z").next();
     }
+
 
 }
 

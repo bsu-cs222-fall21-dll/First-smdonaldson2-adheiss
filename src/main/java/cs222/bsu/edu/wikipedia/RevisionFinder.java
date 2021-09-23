@@ -1,5 +1,6 @@
 package cs222.bsu.edu.wikipedia;
 
+
 import com.google.gson.GsonBuilder;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
@@ -10,9 +11,11 @@ import com.jayway.jsonpath.spi.json.JsonProvider;
 import com.jayway.jsonpath.spi.mapper.GsonMappingProvider;
 import com.jayway.jsonpath.spi.mapper.MappingProvider;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
@@ -48,5 +51,6 @@ public class RevisionFinder {
        // for(int i = 0; i<=30; i++)
         return JsonPath.parse(json).read("$..revisions[2]", typeRef);
     }
+
 
 }
