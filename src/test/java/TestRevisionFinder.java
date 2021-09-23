@@ -1,5 +1,7 @@
+
 import cs222.bsu.edu.wikipedia.GetJSONData;
 import cs222.bsu.edu.wikipedia.Revision;
+
 import cs222.bsu.edu.wikipedia.RevisionFinder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,7 @@ public class TestRevisionFinder {
         Assertions.assertEquals("75.172.213.218", finder.getRevisionFromResponse(jsonResponse));
     }
 
+
     @Test
     public void testGetRevisionFromJson() throws MalformedURLException {
         RevisionFinder finder = new RevisionFinder();
@@ -28,4 +31,5 @@ public class TestRevisionFinder {
 //        Assertions.assertEquals("75.172.213.218", revision.user);
 //        Assertions.assertEquals("/* Business breakups and touring */ clarifications and fix numbers", revision.comment);
     }
+
 }

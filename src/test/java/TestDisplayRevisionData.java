@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 public class TestDisplayRevisionData {
     @Test
     public void testPrintToConsole(){
+
         //json is what display data shows
+
         String json = "{\n" +
                 "  \"continue\": {\n" +
                 "    \"rvcontinue\": \"20210919005429|1045132628\",\n" +
