@@ -1,4 +1,6 @@
+
 import cs222.bsu.edu.wikipedia.Revision;
+
 import cs222.bsu.edu.wikipedia.RevisionFinder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,6 +15,7 @@ public class TestRevisionFinder {
         InputStream jsonResponse = Thread.currentThread().getContextClassLoader().getResourceAsStream("testresponse.json");
         Assertions.assertEquals("75.172.213.218", finder.getRevisionFromResponse(jsonResponse));
     }
+
 
     @Test
     public void testGetRevisionFromJson() {
@@ -50,4 +53,5 @@ public class TestRevisionFinder {
         Assertions.assertEquals("75.172.213.218", revision.user);
         Assertions.assertEquals("fix numbers", revision.comment);
     }
+
 }
