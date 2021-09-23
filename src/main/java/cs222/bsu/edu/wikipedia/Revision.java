@@ -1,10 +1,12 @@
 package cs222.bsu.edu.wikipedia;
 
 public class Revision {
-    private class RevisionData{
-        //convert into timestamp object later
-        private String timestamp;
-        private String username;
-        private String comment;
-    }
+
+    //convert into timestamp object later
+    public String timestamp;
+    public String user;
+    public String comment;
+    public String anon;
+
+
 }
