@@ -1,3 +1,4 @@
+import cs222.bsu.edu.wikipedia.GetJSONData;
 import cs222.bsu.edu.wikipedia.Revision;
 import cs222.bsu.edu.wikipedia.RevisionFinder;
 import org.junit.jupiter.api.Assertions;
@@ -5,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class TestRevisionFinder {
     @Test
@@ -15,39 +18,14 @@ public class TestRevisionFinder {
     }
 
     @Test
-    public void testGetRevisionFromJson() {
+    public void testGetRevisionFromJson() throws MalformedURLException {
         RevisionFinder finder = new RevisionFinder();
-        String json = "{\n" +
-                "  \"continue\": {\n" +
-                "    \"rvcontinue\": \"20210919005429|1045132628\",\n" +
-                "    \"continue\": \"||\"\n" +
-                "  },\n" +
-                "  \"query\": {\n" +
-                "    \"normalized\": [\n" +
-                "      {\n" +
-                "        \"from\": \"Frank_Zappa\",\n" +
-                "        \"to\": \"Frank Zappa\"\n" +
-                "      }\n" +
-                "    ],\n" +
-                "    \"pages\": {\n" +
-                "      \"10672\": {\n" +
-                "        \"pageid\": 10672,\n" +
-                "        \"ns\": 0,\n" +
-                "        \"title\": \"Frank Zappa\",\n" +
-                "        \"revisions\": [\n" +
-                "          {\n" +
-                "            \"user\": \"75.172.213.218\",\n" +
-                "            \"anon\": \"\",\n" +
-                "            \"timestamp\": \"2021-09-19T01:09:23Z\",\n" +
-                "            \"comment\": \"fix numbers\"\n" +
-                "          }\n" +
-                "        ]\n" +
-                "      }\n" +
-                "    }\n" +
-                "  }\n" +
-                "}";
-        Revision revision = finder.getRevisionFromJson(json).get(0);
-        Assertions.assertEquals("75.172.213.218", revision.user);
-        Assertions.assertEquals("fix numbers", revision.comment);
+        GetJSONData jsonData = new GetJSONData();
+        URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Frank_Zappa&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=30");
+
+        Revision revision = finder.getRevisionFromJson(jsonData.getSiteData(url)).get(0);
+        System.out.println(revision.user);
+//        Assertions.assertEquals("75.172.213.218", revision.user);
+//        Assertions.assertEquals("/* Business breakups and touring */ clarifications and fix numbers", revision.comment);
     }
 }
