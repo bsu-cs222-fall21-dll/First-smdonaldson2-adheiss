@@ -17,8 +17,8 @@ dependencies {
     implementation 'com.jayway.jsonpath:json-path:2.5.0'
 
 
-
 }
+
 
 test {
     useJUnitPlatform()

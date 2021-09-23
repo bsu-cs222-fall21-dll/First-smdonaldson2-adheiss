@@ -10,21 +10,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class GetJSONData {
-    public static String connectUrl(){
+    public String getSiteData(URL url){
         String json = null;
-        try {
-            URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Frank_Zappa&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=1");
+        try{
+            //connects to url
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
-            int responseCode = connection.getResponseCode();
-            System.out.println(responseCode);
 
-            //Error Class Code, temporarily here
-            if(responseCode!= 200){
-                throw new RuntimeException("HttpResponseCode: " + responseCode);
-            }
-            //function if response does not = 200 (200 = success)
+            //gets json data from url and converts to string
             InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
 
@@ -33,14 +27,12 @@ public class GetJSONData {
             ex.printStackTrace();
         }
         return json;
-
     }
+    //converts json data to string
     private static String streamToString(InputStream inputStream){
         return new Scanner(inputStream, StandardCharsets.UTF_8).useDelimiter("\\Z").next();
     }
-//    public static void main(String[] args){
-//        System.out.println(connectUrl());
-//    }
+
 }
 
 

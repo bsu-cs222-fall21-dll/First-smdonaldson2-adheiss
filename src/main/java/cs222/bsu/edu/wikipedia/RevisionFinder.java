@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 public class RevisionFinder {
+    //temporary function for testing
     public String getRevisionFromResponse(InputStream inputStream) throws IOException {
         ArrayList<String> username = JsonPath.read(inputStream, "$..revisions[*]..user");
         return username.get(0);
@@ -25,6 +26,7 @@ public class RevisionFinder {
     }
 
     public List<Revision> getRevisionFromJson(String json) {
+        //sets configuration to load/parse JSON
         Configuration.setDefaults(new Configuration.Defaults() {
 
             private final JsonProvider jsonProvider = new GsonJsonProvider(new GsonBuilder().serializeNulls().create());
