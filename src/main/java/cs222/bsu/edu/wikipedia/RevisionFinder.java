@@ -48,7 +48,10 @@ public class RevisionFinder {
             }
         });
         TypeRef<List<Revision>> typeRef = new TypeRef<>() {};
-        return JsonPath.parse(json).read("$..revisions[0]", typeRef);
+
+       // for(int i = 0; i<=30; i++)
+        return JsonPath.parse(json).read("$..revisions[2]", typeRef);
+
     }
 
 
