@@ -11,12 +11,16 @@ public class DisplayRevisionData {
         RevisionFinder finder = new RevisionFinder();
         //runs the json string through RevisionFinder class getRevisionFromJson to assign
         //values to objects declared in revision
-        Revision revision = finder.getRevisionFromJson(json).get(0);
-        String user = revision.user;
-        String comment = revision.comment;
-        String timestamp = revision.timestamp;
-        String anon = revision.anon;
-        //print function
-        printToConsole(user,comment,timestamp,anon);
+        for(int i = 0;i<=30;i++){
+            Revision revision = finder.getRevisionFromJson(json).get(i);
+            String user = revision.user;
+            String comment = revision.comment;
+            String timestamp = revision.timestamp;
+            String anon = revision.anon;
+            System.out.println("Revision Number: "+ (i+1));
+            //print function
+            printToConsole(user,comment,timestamp,anon);
+        }
+
     }
 }
