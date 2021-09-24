@@ -14,11 +14,7 @@ import com.jayway.jsonpath.spi.mapper.MappingProvider;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class RevisionFinder {
     //temporary function for testing
@@ -49,8 +45,10 @@ public class RevisionFinder {
         });
         TypeRef<List<Revision>> typeRef = new TypeRef<>() {};
 
-       // for(int i = 0; i<=30; i++)
-        return JsonPath.parse(json).read("$..revisions[2]", typeRef);
+
+        return JsonPath.parse(json).read("$..revisions[:31]", typeRef);
+
+
 
     }
 
