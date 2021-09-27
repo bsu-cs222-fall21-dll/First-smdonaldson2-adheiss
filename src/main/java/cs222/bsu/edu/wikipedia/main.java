@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) throws MalformedURLException, URISyntaxException {
         DisplaySearchResults displaySearchResults = new DisplaySearchResults();
