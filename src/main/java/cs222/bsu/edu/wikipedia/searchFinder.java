@@ -12,6 +12,7 @@ public class searchFinder {
         Configuration configuration = new Configuration();
         configuration.config();
 
+
         TypeRef<List<search>> typeRef = new TypeRef<>() {};
 
         return JsonPath.parse(json).read("$..search[:6]", typeRef);

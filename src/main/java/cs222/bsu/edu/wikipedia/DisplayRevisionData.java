@@ -7,6 +7,7 @@ public class DisplayRevisionData {
     }
 
     public void revisionData(String json){
+
         RevisionFinder finder = new RevisionFinder();
 
         for(int i = 0;i<30;i++){
@@ -14,7 +15,9 @@ public class DisplayRevisionData {
             String user = revision.user;
             String comment = revision.comment;
             String timestamp = revision.timestamp;
+
             System.out.println(ConsoleColors.RED+"Revision Number: "+ (i+1) + ConsoleColors.RESET);
+
 
             printToConsole(user,comment,timestamp);
         }

@@ -14,12 +14,13 @@ public class searchJSON {
             connection.setRequestMethod("GET");
             connection.connect();
 
+
             GetJSONData getJSONData = new GetJSONData();
             json = getJSONData.getSiteData(newUrl);
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
-        return json;
+
 
     }
     public static URL concatenate(URL baseUrl, String extraPath) throws MalformedURLException, URISyntaxException {
