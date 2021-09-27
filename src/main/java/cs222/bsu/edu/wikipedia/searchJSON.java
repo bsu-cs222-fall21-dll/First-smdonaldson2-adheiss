@@ -9,22 +9,23 @@ public class searchJSON {
         try {
             URL url = new URL("https://www.wikipedia.org/w/api.php");
             URL newUrl = concatenate(url,s);
+
             HttpURLConnection connection = (HttpURLConnection) newUrl.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
-            System.out.println(newUrl);
+
             GetJSONData getJSONData = new GetJSONData();
             String json = getJSONData.getSiteData(newUrl);
+
             searchFinder searchFinder = new searchFinder();
             search search = searchFinder.getSearchFromJson(json).get(0);
             title = search.title;
 
-
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
-        //return the title with underscore between letter
-         return title.replaceAll("\\s+","_");
+        assert title != null;
+        return title.replaceAll("\\s+","_");
 
     }
     public static URL concatenate(URL baseUrl, String extraPath) throws MalformedURLException, URISyntaxException {
