@@ -15,6 +15,7 @@ public class GetJSONData {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
+            connection.setRequestProperty("User-Agent", "Revision Tracker/v0.1.0 (smdonaldson2@bsu.edu)");
 
 
             InputStream inStream = connection.getInputStream();
