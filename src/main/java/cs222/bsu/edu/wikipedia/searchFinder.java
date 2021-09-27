@@ -1,5 +1,6 @@
 package cs222.bsu.edu.wikipedia;
 
+
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.TypeRef;
 
@@ -10,6 +11,7 @@ public class searchFinder {
     public List<search> getSearchFromJson(String json) {
         Configuration configuration = new Configuration();
         configuration.config();
+
 
         TypeRef<List<search>> typeRef = new TypeRef<>() {};
 

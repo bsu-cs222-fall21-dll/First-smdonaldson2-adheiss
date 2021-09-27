@@ -17,6 +17,8 @@ public class GetJSONData {
             connection.setRequestMethod("GET");
             connection.connect();
 
+
+
             InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
         }

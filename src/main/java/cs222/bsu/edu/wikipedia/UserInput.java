@@ -16,6 +16,7 @@ public class UserInput {
         String query  = getInput();
         searchJSON searchJSON = new searchJSON();
         String searchResult = searchJSON.searchInput(query);
+
         System.out.println("Your search result: " + searchResult);
 
         URL url = new URL("https://en.wikipedia.org/w/api.php");
@@ -27,6 +28,7 @@ public class UserInput {
 
         GetJSONData getJSONData = new GetJSONData();
         String json = getJSONData.getSiteData(newUrl);
+
 
         DisplayRevisionData displayRevisionData = new DisplayRevisionData();
         displayRevisionData.revisionData(json);
