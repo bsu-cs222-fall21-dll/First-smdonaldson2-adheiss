@@ -12,8 +12,8 @@ public class main {
 
         System.out.println(ConsoleColors.PURPLE + "Redirected you to: " + searchResult + ConsoleColors.RESET);
         URL url = new URL("https://www.wikipedia.org/w/api.php");
-        GetJSONData getJSONData = new GetJSONData();
-        URL newUrl = GetJSONData.concatenate(url, searchResult);
+        GetJSONRevision getJSONData = new GetJSONRevision();
+        URL newUrl = GetJSONRevision.concatenate(url, searchResult);
         String json = getJSONData.getSiteData(newUrl);
 
         DisplayRevisionData displayRevisionData = new DisplayRevisionData();

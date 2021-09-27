@@ -12,8 +12,8 @@ public class searchJSON {
 
             HttpURLConnection connection = (HttpURLConnection) newUrl.openConnection();
             connection.setRequestMethod("GET");
-            connection.connect();
             connection.setRequestProperty("User-Agent","Revision Tracker/v0.1.0 (smdonaldson2@bsu.edu)");
+            connection.connect();
 
 
             GetJSONRevision getJSONData = new GetJSONRevision();
@@ -21,6 +21,7 @@ public class searchJSON {
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
+        return json;
 
 
     }

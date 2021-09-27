@@ -14,8 +14,8 @@ public class GetJSONRevision {
         try{
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            connection.connect();
             connection.setRequestProperty("User-Agent","Revision Tracker/v0.1.0 (smdonaldson2@bsu.edu)");
+            connection.connect();
 
 
             InputStream inStream = connection.getInputStream();
