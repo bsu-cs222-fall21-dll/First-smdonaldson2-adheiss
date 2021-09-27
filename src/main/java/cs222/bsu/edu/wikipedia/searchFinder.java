@@ -15,7 +15,6 @@ public class searchFinder {
 
         TypeRef<List<search>> typeRef = new TypeRef<>() {};
 
-        return JsonPath.parse(json).read("$..search[0]", typeRef);
-
+        return JsonPath.parse(json).read("$..search[:6]", typeRef);
     }
 }

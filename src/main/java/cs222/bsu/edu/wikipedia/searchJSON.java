@@ -5,7 +5,7 @@ import java.net.*;
 
 public class searchJSON {
     public String searchInput(String s){
-        String title = null;
+        String json = null;
         try {
             URL url = new URL("https://www.wikipedia.org/w/api.php");
             URL newUrl = concatenate(url,s);
@@ -14,25 +14,19 @@ public class searchJSON {
             connection.setRequestMethod("GET");
             connection.connect();
 
+
             GetJSONData getJSONData = new GetJSONData();
-            String json = getJSONData.getSiteData(newUrl);
-
-            searchFinder searchFinder = new searchFinder();
-            search search = searchFinder.getSearchFromJson(json).get(0);
-            title = search.title;
-
-
+            json = getJSONData.getSiteData(newUrl);
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
-        assert title != null;
-        return title.replaceAll("\\s+","_");
+
 
     }
     public static URL concatenate(URL baseUrl, String extraPath) throws MalformedURLException, URISyntaxException {
         URI uri = baseUrl.toURI();
-        String newPath = uri.getPath() + "?action=query&format=json&list=search&srsearch=" +extraPath+ "&srlimit=1";
-        URI newuri = uri.resolve(newPath);
-        return newuri.toURL();
+        String newPath = uri.getPath() + "?action=query&format=json&list=search&srsearch=" +extraPath+ "&srlimit=5";
+        URI newUri = uri.resolve(newPath);
+        return newUri.toURL();
     }
 }

@@ -11,12 +11,13 @@ public class DisplayRevisionData {
         RevisionFinder finder = new RevisionFinder();
 
         for(int i = 0;i<30;i++){
-
             Revision revision = finder.getRevisionFromJson(json).get(i);
             String user = revision.user;
             String comment = revision.comment;
             String timestamp = revision.timestamp;
-            System.out.println("Revision Number: "+ (i+1));
+
+            System.out.println(ConsoleColors.RED+"Revision Number: "+ (i+1) + ConsoleColors.RESET);
+
 
             printToConsole(user,comment,timestamp);
         }
