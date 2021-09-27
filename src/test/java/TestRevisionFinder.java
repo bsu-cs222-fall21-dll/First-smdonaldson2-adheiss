@@ -12,12 +12,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class TestRevisionFinder {
-    @Test
-    public void testGetRevisionFromResponse() throws IOException {
-        RevisionFinder finder = new RevisionFinder();
-        InputStream jsonResponse = Thread.currentThread().getContextClassLoader().getResourceAsStream("testresponse.json");
-        Assertions.assertEquals("75.172.213.218", finder.getRevisionFromResponse(jsonResponse));
-    }
 
 
     @Test

@@ -11,7 +11,7 @@ public class DisplayRevisionData {
         RevisionFinder finder = new RevisionFinder();
         //runs the json string through RevisionFinder class getRevisionFromJson to assign
         //values to objects declared in revision
-        for(int i = 0;i<=30;i++){
+        for(int i = 0;i<30;i++){
             Revision revision = finder.getRevisionFromJson(json).get(i);
             String user = revision.user;
             String comment = revision.comment;

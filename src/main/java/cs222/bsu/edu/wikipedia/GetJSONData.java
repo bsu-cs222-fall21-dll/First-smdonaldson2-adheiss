@@ -21,7 +21,6 @@ public class GetJSONData {
 
             //gets json data from url and converts to string
 
-
             InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
 
