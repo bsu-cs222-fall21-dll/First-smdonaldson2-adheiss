@@ -1,6 +1,5 @@
 package cs222.bsu.edu.wikipedia;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -18,7 +17,6 @@ public class GetJSONData {
             connection.connect();
 
 
-
             InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
         }
@@ -30,7 +28,6 @@ public class GetJSONData {
     private static String streamToString(InputStream inputStream){
         return new Scanner(inputStream, StandardCharsets.UTF_8).useDelimiter("\\Z").next();
     }
-
 
 }
 
