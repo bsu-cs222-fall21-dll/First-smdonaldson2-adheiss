@@ -10,7 +10,7 @@ public class main {
         DisplaySearchResults displaySearchResults = new DisplaySearchResults();
         String searchResult = displaySearchResults.searchData();
 
-        System.out.println(ConsoleColors.PURPLE + "Redirected you to: " + searchResult + ConsoleColors.RESET);
+        System.out.println(ConsoleColors.YELLOW + "Redirected you to: " + searchResult + ConsoleColors.RESET);
         URL url = new URL("https://www.wikipedia.org/w/api.php");
         GetJSONData getJSONData = new GetJSONData();
         URL newUrl = GetJSONData.concatenate(url, searchResult);

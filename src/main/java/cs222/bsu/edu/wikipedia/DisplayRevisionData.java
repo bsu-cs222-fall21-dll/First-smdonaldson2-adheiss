@@ -3,7 +3,7 @@ package cs222.bsu.edu.wikipedia;
 public class DisplayRevisionData {
 
     private void printToConsole(String user, String comment, String timestamp ){
-        System.out.println("User: " + user + "\nComment: "+ comment + "\nTimestamp: " + timestamp );
+        System.out.println(ConsoleColors.CYAN_BOLD+"User: " + ConsoleColors.PURPLE_BOLD+ user + ConsoleColors.CYAN_BOLD+"\nComment: "+ ConsoleColors.PURPLE_BOLD+ comment + ConsoleColors.CYAN_BOLD+"\nTimestamp: " + ConsoleColors.PURPLE_BOLD+ timestamp + ConsoleColors.RESET);
     }
 
     public void revisionData(String json){
