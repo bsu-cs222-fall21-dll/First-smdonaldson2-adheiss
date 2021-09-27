@@ -20,7 +20,7 @@ public class searchJSON {
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
-
+        return json;
 
     }
     public static URL concatenate(URL baseUrl, String extraPath) throws MalformedURLException, URISyntaxException {
