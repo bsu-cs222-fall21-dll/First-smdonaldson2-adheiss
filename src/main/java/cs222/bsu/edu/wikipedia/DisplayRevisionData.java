@@ -18,7 +18,7 @@ public class DisplayRevisionData {
             String timestamp = revision.timestamp;
             String anon = revision.anon;
             System.out.println("Revision Number: "+ (i+1));
-            //print function
+            //print function for entire string
             printToConsole(user,comment,timestamp,anon);
         }
     }
