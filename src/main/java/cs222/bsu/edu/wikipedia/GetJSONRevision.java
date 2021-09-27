@@ -7,7 +7,7 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
-public class GetJSONData {
+public class GetJSONRevision {
 
     public String getSiteData(URL url){
         String json = null;
