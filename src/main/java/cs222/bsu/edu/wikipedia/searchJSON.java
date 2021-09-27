@@ -13,9 +13,10 @@ public class searchJSON {
             HttpURLConnection connection = (HttpURLConnection) newUrl.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();
+            connection.setRequestProperty("User-Agent","Revision Tracker/0.1.0 (smdonaldson2@bsu.edu)");
 
 
-            GetJSONData getJSONData = new GetJSONData();
+            GetJSONRevision getJSONData = new GetJSONRevision();
             json = getJSONData.getSiteData(newUrl);
         } catch (IOException | URISyntaxException e) {
             e.printStackTrace();
@@ -26,6 +27,7 @@ public class searchJSON {
     public static URL concatenate(URL baseUrl, String extraPath) throws MalformedURLException, URISyntaxException {
         URI uri = baseUrl.toURI();
         String newPath = uri.getPath() + "?action=query&format=json&list=search&srsearch=" +extraPath+ "&srlimit=5";
+
         URI newUri = uri.resolve(newPath);
         return newUri.toURL();
     }
