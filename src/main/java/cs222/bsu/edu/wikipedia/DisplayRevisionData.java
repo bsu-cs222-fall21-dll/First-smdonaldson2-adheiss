@@ -21,6 +21,5 @@ public class DisplayRevisionData {
             //print function
             printToConsole(user,comment,timestamp,anon);
         }
-
     }
 }

@@ -9,7 +9,8 @@ public class Redirect
         this.from = from;
         this.to = to;
     }
-
+// words in conjunction with the revision class
+// to redirect the user to the top result for their search
     @Override
     public String toString() {
         return "Redirect{" +
@@ -17,6 +18,5 @@ public class Redirect
                 ", to='" + to + '\'' +
                 '}';
     }
-
 
 }
