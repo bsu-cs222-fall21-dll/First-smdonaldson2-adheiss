@@ -21,10 +21,15 @@ public class Revision {
     public String anon;
 
 
-    // a
+    /*
+    JsonArray redirectsParser(InputStream input) {
+        JsonParser parser = new JsonParser();
+        Reader reader = new InputStreamReader(input);
+        JsonElement rootElement = parser.parse(reader);
 
-
-
+        JsonObject rootObject = rootElement.getAsJsonObject();
+        return rootObject.getAsJsonObject("query").getAsJsonArray("redirects");
+    }
 
     List<Redirect> createRedirectsList(JsonArray redirectsArray) {
         List<Redirect> redirectsList = new ArrayList<>();
@@ -49,6 +54,6 @@ public class Revision {
         }
         return redirectsList;
     }
-
+*/
 
 }
