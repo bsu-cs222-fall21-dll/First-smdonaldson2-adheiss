@@ -10,7 +10,8 @@ public class UserInput {
     private static String getInput(){
         Scanner input =  new Scanner(System.in);
         System.out.println("Please Enter Your Search:");
-        return input.nextLine();
+        String userInput = input.nextLine();
+        return userInput.replaceAll("\\s+","_");
     }
     public static void main(String[] args) throws MalformedURLException, URISyntaxException {
         String query  = getInput();
