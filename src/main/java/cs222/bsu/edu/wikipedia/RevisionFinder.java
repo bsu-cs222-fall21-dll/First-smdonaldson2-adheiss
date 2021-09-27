@@ -1,6 +1,5 @@
 package cs222.bsu.edu.wikipedia;
 
-
 import com.google.gson.GsonBuilder;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;

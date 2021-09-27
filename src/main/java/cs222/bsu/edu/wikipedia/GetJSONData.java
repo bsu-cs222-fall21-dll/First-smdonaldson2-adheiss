@@ -1,7 +1,5 @@
 package cs222.bsu.edu.wikipedia;
 
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -17,8 +15,8 @@ public class GetJSONData {
             //connects to url
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
+            connection.setRequestProperty("User-Agent","Revision Tracker/0.1 (smdonaldson2@bsu.edu)");
             connection.connect();
-
             //gets json data from url and converts to string
 
             InputStream inStream = connection.getInputStream();
@@ -29,14 +27,11 @@ public class GetJSONData {
             ex.printStackTrace();
         }
         return json;
-
     }
     //converts json data to string
     private static String streamToString(InputStream inputStream){
         return new Scanner(inputStream, StandardCharsets.UTF_8).useDelimiter("\\Z").next();
     }
-
-
 }
 
 
