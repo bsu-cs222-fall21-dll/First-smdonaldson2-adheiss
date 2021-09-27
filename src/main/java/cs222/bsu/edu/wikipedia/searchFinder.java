@@ -10,14 +10,12 @@ import com.jayway.jsonpath.spi.json.JsonProvider;
 import com.jayway.jsonpath.spi.mapper.GsonMappingProvider;
 import com.jayway.jsonpath.spi.mapper.MappingProvider;
 
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.*;
-
-public class RevisionFinder {
-
-    public List<Revision> getRevisionFromJson(String json) {
+public class searchFinder {
+    public List<search> getSearchFromJson(String json) {
         //sets configuration to load/parse JSON
         Configuration.setDefaults(new Configuration.Defaults() {
 
@@ -36,14 +34,9 @@ public class RevisionFinder {
                 return EnumSet.noneOf(Option.class);
             }
         });
-        TypeRef<List<Revision>> typeRef = new TypeRef<>() {};
+        TypeRef<List<search>> typeRef = new TypeRef<>() {};
 
-
-        return JsonPath.parse(json).read("$..revisions[:31]", typeRef);
-
-
+        return JsonPath.parse(json).read("$..search[0]", typeRef);
 
     }
-
-
 }

@@ -18,6 +18,7 @@ public class GetJSONData {
             connection.setRequestProperty("User-Agent","Revision Tracker/0.1 (smdonaldson2@bsu.edu)");
             connection.connect();
             //gets json data from url and converts to string
+
             InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
 
