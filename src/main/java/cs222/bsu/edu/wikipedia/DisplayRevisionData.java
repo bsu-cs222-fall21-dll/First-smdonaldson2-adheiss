@@ -18,7 +18,6 @@ public class DisplayRevisionData {
 
             System.out.println(ConsoleColors.RED+"Revision Number: "+ (i+1) + ConsoleColors.RESET);
 
-
             printToConsole(user,comment,timestamp);
         }
 

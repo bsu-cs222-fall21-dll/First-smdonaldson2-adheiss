@@ -33,11 +33,7 @@ public class UserInput {
                 break;
             }
         }
-
         return Integer.toString(userInput);
-
-
-
     }
 
 
