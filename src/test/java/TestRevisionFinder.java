@@ -1,13 +1,10 @@
 
-import cs222.bsu.edu.wikipedia.GetJSONData;
+import cs222.bsu.edu.wikipedia.Finder;
+import cs222.bsu.edu.wikipedia.GetJSONRevision;
 import cs222.bsu.edu.wikipedia.Revision;
 
-import cs222.bsu.edu.wikipedia.RevisionFinder;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -16,8 +13,8 @@ public class TestRevisionFinder {
 
     @Test
     public void testGetRevisionFromJson() throws MalformedURLException {
-        RevisionFinder finder = new RevisionFinder();
-        GetJSONData jsonData = new GetJSONData();
+        Finder finder = new Finder();
+        GetJSONRevision jsonData = new GetJSONRevision();
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Frank_Zappa&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=30");
 
 

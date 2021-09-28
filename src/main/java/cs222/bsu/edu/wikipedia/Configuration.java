@@ -11,6 +11,7 @@ import java.util.EnumSet;
 import java.util.Set;
 
 public class Configuration {
+    //configuration for Typeref use
     public void config(){
         com.jayway.jsonpath.Configuration.setDefaults(new com.jayway.jsonpath.Configuration.Defaults() {
             private final JsonProvider jsonProvider = new GsonJsonProvider(new GsonBuilder().serializeNulls().create());

@@ -5,7 +5,7 @@ import java.net.*;
 
 public class searchJSON {
     public String searchInput(String s){
-        String json = null;
+        String json = " ";
         try {
             URL url = new URL("https://www.wikipedia.org/w/api.php");
             URL newUrl = concatenate(url,s);
@@ -15,12 +15,15 @@ public class searchJSON {
             connection.setRequestProperty("User-Agent","Revision Tracker/v0.1.0 (smdonaldson2@bsu.edu)");
             connection.connect();
 
-
             GetJSONRevision getJSONData = new GetJSONRevision();
+
             json = getJSONData.getSiteData(newUrl);
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
+
+        } catch (IOException | URISyntaxException ioException) {
+            Errors errors = new Errors();
+            errors.exitCodeThree();
         }
+
         return json;
 
 
