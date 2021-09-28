@@ -15,17 +15,13 @@ public class searchJSON {
             connection.setRequestProperty("User-Agent","Revision Tracker/v0.1.0 (smdonaldson2@bsu.edu)");
             connection.connect();
 
-
             GetJSONRevision getJSONData = new GetJSONRevision();
 
             json = getJSONData.getSiteData(newUrl);
 
-            System.out.println(json);
-
-
         } catch (IOException | URISyntaxException ioException) {
-            System.err.println("Network Error: "+ ioException.getMessage());
-            System.exit(3);
+            Errors errors = new Errors();
+            errors.exitCodeThree();
         }
 
         return json;

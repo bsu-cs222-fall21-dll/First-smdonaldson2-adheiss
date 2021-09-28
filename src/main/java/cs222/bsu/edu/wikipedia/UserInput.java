@@ -9,21 +9,35 @@ public class UserInput {
         System.out.println(ConsoleColors.BLUE+"Please Enter Your Search:"+ConsoleColors.RESET);
         String userInput = input.nextLine();
         if(userInput.equals("")){
-            System.err.println("You must enter something!");
-            System.exit(1);
+            Errors errors = new Errors();
+            errors.exitCodeOne();
         }
         return userInput.replaceAll("\\s+","_");
     }
 
     public static String getSearchInput(){
         Scanner input =  new Scanner(System.in);
-        System.out.println(ConsoleColors.BLUE+"Enter the page title you want to search: "+ConsoleColors.RESET);
-        String userInput = input.nextLine();
-        if(userInput.equals("")){
-            System.err.println("You must enter something!");
-            System.exit(1);
+        int userInput;
+
+        System.out.println(ConsoleColors.BLUE+"Enter the corresponding number to the title you would like to search: "+ConsoleColors.RESET);
+        while(true){
+            userInput = input.nextInt();
+            if(userInput<1 || userInput>5){
+                System.out.println("Please enter a number 1-5");
+            }
+            else if(Integer.toString(userInput).equals("")){
+                Errors errors = new Errors();
+                errors.exitCodeOne();
+            }
+            else{
+                break;
+            }
         }
-        return userInput.replaceAll("\\s+","_");
+
+        return Integer.toString(userInput);
+
+
+
     }
 
 
