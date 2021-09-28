@@ -8,6 +8,10 @@ public class UserInput {
         Scanner input =  new Scanner(System.in);
         System.out.println(ConsoleColors.BLUE+"Please Enter Your Search:"+ConsoleColors.RESET);
         String userInput = input.nextLine();
+        if(userInput.equals("")){
+            System.err.println("You must enter something!");
+            System.exit(1);
+        }
         return userInput.replaceAll("\\s+","_");
     }
 
@@ -15,6 +19,10 @@ public class UserInput {
         Scanner input =  new Scanner(System.in);
         System.out.println(ConsoleColors.BLUE+"Enter the page title you want to search: "+ConsoleColors.RESET);
         String userInput = input.nextLine();
+        if(userInput.equals("")){
+            System.err.println("You must enter something!");
+            System.exit(1);
+        }
         return userInput.replaceAll("\\s+","_");
     }
 

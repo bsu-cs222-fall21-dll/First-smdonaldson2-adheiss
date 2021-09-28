@@ -21,8 +21,9 @@ public class GetJSONRevision {
             InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
         }
-        catch (IOException ex) {
-            ex.printStackTrace();
+        catch (IOException ioException) {
+            System.err.println("Network Error Code 3: " + ioException.getMessage());
+            System.exit(3);
         }
         return json;
     }

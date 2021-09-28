@@ -8,7 +8,7 @@ public class DisplayRevisionData {
 
     public void revisionData(String json){
 
-        RevisionFinder finder = new RevisionFinder();
+        Finder finder = new Finder();
 
         for(int i = 0;i<30;i++){
             Revision revision = finder.getRevisionFromJson(json).get(i);
