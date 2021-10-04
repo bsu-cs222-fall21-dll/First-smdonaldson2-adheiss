@@ -1,11 +1,9 @@
 package cs222.bsu.edu.wikipedia;
 
-import java.util.Objects;
-
 public class DisplaySearchResults {
 
-    public String searchData(){
-        String input = UserInput.getInput();
+    public String[] searchData(String input){
+//        String input = UserInput.getInput();
         String[] resultArray = new String[5];
 
         searchJSON searchJSON = new searchJSON();
@@ -22,27 +20,28 @@ public class DisplaySearchResults {
 
             System.out.println(ConsoleColors.GREEN + "Search Result #"+ (i+1) + ". " + title + ConsoleColors.RESET);
         }
-        String searchInput = UserInput.getSearchInput();
-        String returnedSearch = "";
-
-        if(searchInput.equals("1")){
-            returnedSearch = resultArray[0];
-        }
-        else if(searchInput.equals("2")){
-            returnedSearch = resultArray[1];
-        }
-        else if(searchInput.equals("3")){
-            returnedSearch = resultArray[2];
-        }
-        else if(searchInput.equals("4")){
-            returnedSearch = resultArray[3];
-        }
-        else if(searchInput.equals("5")){
-            returnedSearch = resultArray[4];
-        }
-
-        return returnedSearch.replaceAll("\\s+","_");
-
+        return resultArray;
+//        String searchInput = UserInput.getSearchInput();
+//        String returnedSearch = "";
+//
+//        if(searchInput.equals("1")){
+//            returnedSearch = resultArray[0];
+//        }
+//        else if(searchInput.equals("2")){
+//            returnedSearch = resultArray[1];
+//        }
+//        else if(searchInput.equals("3")){
+//            returnedSearch = resultArray[2];
+//        }
+//        else if(searchInput.equals("4")){
+//            returnedSearch = resultArray[3];
+//        }
+//        else if(searchInput.equals("5")){
+//            returnedSearch = resultArray[4];
+//        }
+//
+//        return returnedSearch.replaceAll("\\s+","_");
+//
     }
 
 
