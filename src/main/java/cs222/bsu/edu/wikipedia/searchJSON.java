@@ -10,10 +10,8 @@ public class searchJSON {
             URL url = new URL("https://www.wikipedia.org/w/api.php");
             URL newUrl = concatenate(url,s);
 
-            HttpURLConnection connection = (HttpURLConnection) newUrl.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("User-Agent","Revision Tracker/v0.1.0 (smdonaldson2@bsu.edu)");
-            connection.connect();
+            URLConnection urlConnection = new URLConnection();
+            urlConnection.connect(newUrl);
 
             GetJSONRevision getJSONData = new GetJSONRevision();
 
@@ -28,7 +26,7 @@ public class searchJSON {
 
 
     }
-    public static URL concatenate(URL baseUrl, String extraPath) throws MalformedURLException, URISyntaxException {
+    public URL concatenate(URL baseUrl, String extraPath) throws MalformedURLException, URISyntaxException {
         URI uri = baseUrl.toURI();
         String newPath = uri.getPath() + "?action=query&format=json&list=search&srsearch=" +extraPath+ "&srlimit=5";
 

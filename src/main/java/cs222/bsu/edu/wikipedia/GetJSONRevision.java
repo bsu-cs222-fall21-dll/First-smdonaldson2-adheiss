@@ -12,12 +12,9 @@ public class GetJSONRevision {
     public String getSiteData(URL url){
         String json = null;
         try{
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("User-Agent","Revision Tracker/v0.1.0 (smdonaldson2@bsu.edu)");
-            connection.connect();
+            URLConnection urlConnection = new URLConnection();
+            InputStream inStream = urlConnection.connect(url);
 
-            InputStream inStream = connection.getInputStream();
             json = streamToString(inStream);
         }
         catch (IOException ioException) {
@@ -26,6 +23,7 @@ public class GetJSONRevision {
         }
         return json;
     }
+
     private static String streamToString(InputStream inputStream){
         return new Scanner(inputStream, StandardCharsets.UTF_8).useDelimiter("\\Z").next();
     }

@@ -5,9 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
+import javax.swing.*;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Objects;
 
 
 public class Controller {
@@ -21,12 +23,24 @@ public class Controller {
     private ChoiceBox<String> choiceBox = new ChoiceBox<>();
     @FXML
     private final Dialog<String> dialog = new Dialog<>();
+    @FXML
+    private final Alert alert = new Alert(Alert.AlertType.ERROR);
 
-
-    public void Search() {
+    public void Search() throws MalformedURLException, URISyntaxException {
         String input = buttonClick();
         DisplaySearchResults displaySearchResults = new DisplaySearchResults();
         String[] searchResult;
+
+        searchJSON json = new searchJSON();
+        URL url = new URL("https://www.wikipedia.org/w/api.php");
+        URL newUrl = json.concatenate(url, input);
+        Errors errors = new Errors();
+        if(errors.checkNetwork(newUrl).equals(Boolean.TRUE)){
+            alert.setContentText("Network Error");
+            alert.showAndWait();
+            System.exit(3);
+        }
+
         searchResult = displaySearchResults.searchData(input);
         populateChoiceBox(searchResult);
     }
@@ -36,17 +50,26 @@ public class Controller {
         URL url = new URL("https://www.wikipedia.org/w/api.php");
         GetJSONRevision getJSONData = new GetJSONRevision();
         URL newUrl = GetJSONRevision.concatenate(url, searchResult);
+        Errors errors = new Errors();
+        if(errors.checkNetwork(newUrl).equals(Boolean.TRUE)){
+            alert.setContentText("Network Error");
+            alert.showAndWait();
+            System.exit(3);
+        }
+
+
         String json = getJSONData.getSiteData(newUrl);
 
         populateListView(json);
     }
     private void populateListView(String json){
         Finder finder = new Finder();
+        TimeConverter timeConverter = new TimeConverter();
         for(int i = 0;i<30;i++) {
             Revision revision = finder.getRevisionFromJson(json).get(i);
             String user = revision.user;
             String comment = revision.comment;
-            String timestamp = revision.timestamp;
+            String timestamp = timeConverter.convertTime(revision.timestamp);
             list.getItems().addAll( "Revision #" + (i+1),"User: " + user, "Comment: " + comment, "Timestamp: " + timestamp);
         }
     }
@@ -92,6 +115,12 @@ public class Controller {
         return choice.replaceAll("\\s+","_");
     }
     private void populateChoiceBox(String[] input){
+        if(Objects.equals(input[0], null)){
+            System.out.println("Hello");
+            alert.setContentText("No Search Exists");
+            alert.showAndWait();
+            System.exit(2);
+        }
         for (String s : input) {
             choiceBox.getItems().add(s);
         }

@@ -9,6 +9,26 @@ public class DisplaySearchResults {
         String json = searchJSON.searchInput(input);
         Finder finder = new Finder();
         if(finder.getSearchFromJson(json).size()==0){
+            return resultArray;
+        }
+        else{
+            for(int i = 0;i< 5;i++){
+                search search = finder.getSearchFromJson(json).get(i);
+                String title = search.title;
+                resultArray[i] = title;
+            }
+        }
+        return resultArray;
+    }
+
+    public String searchDataConsole(){
+        String input = UserInput.getInput();
+        String[] resultArray = searchData(input);
+
+        searchJSON searchJSON = new searchJSON();
+        String json = searchJSON.searchInput(input);
+        Finder finder = new Finder();
+        if(finder.getSearchFromJson(json).size()==0){
             Errors errors = new Errors();
             errors.exitCodeTwo();
         }
@@ -17,12 +37,6 @@ public class DisplaySearchResults {
             String title = search.title;
             resultArray[i] = title;
         }
-        return resultArray;
-    }
-
-    public String searchDataConsole(){
-        String input = UserInput.getInput();
-        String[] resultArray = searchData(input);
 
         for(int i = 0; i<5;i++){
             System.out.println(ConsoleColors.GREEN + "Search Result #" + (i+1) + " " + resultArray[i] + ConsoleColors.RESET);
