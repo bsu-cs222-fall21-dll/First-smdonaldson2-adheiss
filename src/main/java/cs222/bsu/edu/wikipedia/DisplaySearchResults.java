@@ -3,7 +3,6 @@ package cs222.bsu.edu.wikipedia;
 public class DisplaySearchResults {
 
     public String[] searchData(String input){
-//        String input = UserInput.getInput();
         String[] resultArray = new String[5];
 
         searchJSON searchJSON = new searchJSON();
@@ -17,31 +16,30 @@ public class DisplaySearchResults {
             search search = finder.getSearchFromJson(json).get(i);
             String title = search.title;
             resultArray[i] = title;
-
-            System.out.println(ConsoleColors.GREEN + "Search Result #"+ (i+1) + ". " + title + ConsoleColors.RESET);
         }
         return resultArray;
-//        String searchInput = UserInput.getSearchInput();
-//        String returnedSearch = "";
-//
-//        if(searchInput.equals("1")){
-//            returnedSearch = resultArray[0];
-//        }
-//        else if(searchInput.equals("2")){
-//            returnedSearch = resultArray[1];
-//        }
-//        else if(searchInput.equals("3")){
-//            returnedSearch = resultArray[2];
-//        }
-//        else if(searchInput.equals("4")){
-//            returnedSearch = resultArray[3];
-//        }
-//        else if(searchInput.equals("5")){
-//            returnedSearch = resultArray[4];
-//        }
-//
-//        return returnedSearch.replaceAll("\\s+","_");
-//
+    }
+
+    public String searchDataConsole(){
+        String input = UserInput.getInput();
+        String[] resultArray = searchData(input);
+
+        for(int i = 0; i<5;i++){
+            System.out.println(ConsoleColors.GREEN + "Search Result #" + (i+1) + " " + resultArray[i] + ConsoleColors.RESET);
+        }
+
+        searchData(input);
+        String searchInput = UserInput.getSearchInput();
+        String returnedSearch = switch (searchInput) {
+            case "1" -> resultArray[0];
+            case "2" -> resultArray[1];
+            case "3" -> resultArray[2];
+            case "4" -> resultArray[3];
+            case "5" -> resultArray[4];
+            default -> "";
+        };
+
+        return returnedSearch.replaceAll("\\s+","_");
     }
 
 

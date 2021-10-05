@@ -1,29 +1,22 @@
 package cs222.bsu.edu.wikipedia;
 
-import java.net.*;
-
-import static cs222.bsu.edu.wikipedia.UserInput.getInput;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class Main {
+
     public static void main(String[] args) throws MalformedURLException, URISyntaxException {
-        String query  = getInput();
-        searchJSON searchJSON = new searchJSON();
-        String searchResult = searchJSON.searchInput(query);
+        DisplaySearchResults displaySearchResults = new DisplaySearchResults();
+        String searchResult = displaySearchResults.searchDataConsole();
 
-        System.out.println("Your search result: " + searchResult);
-
-        URL url = new URL("https://en.wikipedia.org/w/api.php");
-        URI uri = url.toURI();
-        String newPath = uri.getPath() + "?action=query&format=json&prop=revisions&titles=" + searchResult + "&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=30";
-
-        URI newURI = uri.resolve(newPath);
-        URL newUrl = newURI.toURL();
-
-        GetJSONData getJSONData = new GetJSONData();
+        System.out.println(ConsoleColors.PURPLE + "Redirected you to: " + searchResult + ConsoleColors.RESET);
+        URL url = new URL("https://www.wikipedia.org/w/api.php");
+        GetJSONRevision getJSONData = new GetJSONRevision();
+        URL newUrl = GetJSONRevision.concatenate(url, searchResult);
         String json = getJSONData.getSiteData(newUrl);
 
         DisplayRevisionData displayRevisionData = new DisplayRevisionData();
         displayRevisionData.revisionData(json);
-
     }
 }

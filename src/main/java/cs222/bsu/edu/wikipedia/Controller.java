@@ -26,7 +26,8 @@ public class Controller {
     public void Search() {
         String input = buttonClick();
         DisplaySearchResults displaySearchResults = new DisplaySearchResults();
-        String[] searchResult = displaySearchResults.searchData(input);
+        String[] searchResult;
+        searchResult = displaySearchResults.searchData(input);
         populateChoiceBox(searchResult);
     }
     public void getRevisions() throws MalformedURLException, URISyntaxException {

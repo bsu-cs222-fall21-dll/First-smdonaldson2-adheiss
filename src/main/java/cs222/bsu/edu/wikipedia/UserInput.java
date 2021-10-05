@@ -21,18 +21,20 @@ public class UserInput {
 
         System.out.println(ConsoleColors.BLUE+"Enter the corresponding number to the title you would like to search: "+ConsoleColors.RESET);
         while(true){
-            //check if user enters string
-            userInput = input.nextInt();
-            if(userInput<1 || userInput>5){
-                System.out.println("Please enter a number 1-5");
-            }
-            else if(Integer.toString(userInput).equals("")){
-                Errors errors = new Errors();
-                errors.exitCodeOne();
+            if(input.hasNextInt()){
+                userInput = input.nextInt();
+                if(userInput<1 || userInput>5){
+                    System.out.println("Please enter a number 1-5!");
+                }
+                else {
+                    break;
+                }
             }
             else{
-                break;
+                input.next();
+                System.out.println("Please enter a number 1-5!");
             }
+
         }
         return Integer.toString(userInput);
     }
