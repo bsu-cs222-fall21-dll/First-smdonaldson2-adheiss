@@ -11,5 +11,6 @@ To run through the console version of the program go to the class 'Main' and run
 
 To run a UI version click 'gradle' on the top far right of intellij
 expand 'ProjectOneWikipedia'
+expand 'Tasks'
 expand 'application'
 double click 'run'
