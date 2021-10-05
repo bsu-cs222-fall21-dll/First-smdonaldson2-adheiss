@@ -1,22 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cs222.bsu.edu.wikipedia.Controller">
-    <children>
-        <Label fx:id="lblOutput" layoutX="23.0" layoutY="55.0" prefHeight="17.0" prefWidth="150.0" text="Please Enter Your Search: " />
-        <TextField fx:id="input" layoutX="70.0" layoutY="80.0" promptText="Ex: Frank Zappa" />
-        <Button fx:id="bInputSave" layoutX="70.0" layoutY="111.0" mnemonicParsing="false" onAction="#Search" text="Search" />
-        <ChoiceBox fx:id="choiceBox" layoutX="70.0" layoutY="169.0" prefHeight="26.0" prefWidth="212.0" />
-        <Button layoutX="300.0" layoutY="169.0" mnemonicParsing="false" onAction="#getRevisions" prefHeight="27.0" prefWidth="100.0" text="Select" />
-      <ListView fx:id="list" editable="true" layoutX="70.0" layoutY="217.0" prefHeight="244.0" prefWidth="404.0" />
-      <Label layoutX="23.0" layoutY="145.0" text="Please Choose Your Selection:" />
-      <Label layoutX="125.0" layoutY="14.0" prefHeight="30.0" prefWidth="314.0" text="Revision Finder 3000">
-         <font>
-            <Font name="Andale Mono" size="26.0" />
-         </font>
-      </Label>
-    </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0"
+      prefWidth="551.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cs222.bsu.edu.wikipedia.Controller">
+    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="387.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="wikilogo.png"/>
+    </ImageView>
+    <Label layoutX="23.0" layoutY="81.0" prefHeight="17.0" prefWidth="170.0" text="Please Enter Your Search: ">
+        <font>
+            <Font name="Times New Roman" size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="input" layoutX="70.0" layoutY="104.0" promptText="Ex: Frank Zappa"/>
+    <Button fx:id="buttonSearch" layoutX="70.0" layoutY="138.0" mnemonicParsing="false" onAction="#Search" text="Search"/>
+    <ChoiceBox fx:id="choiceBox" layoutX="67.0" layoutY="195.0" prefHeight="26.0" prefWidth="212.0"/>
+    <ListView fx:id="list" layoutX="74.0" layoutY="250.0" prefHeight="244.0" prefWidth="404.0"/>
+    <Label layoutX="23.0" layoutY="170.0" text="Please Choose Your Selection:">
+        <font>
+            <Font name="Times New Roman" size="14.0"/>
+        </font>
+    </Label>
+    <Label alignment="TOP_LEFT" layoutX="224.0" layoutY="14.0" prefHeight="34.0" prefWidth="116.0" text="Wikipedia"
+           textAlignment="CENTER" wrapText="true">
+        <font>
+          <Font name="Times New Roman" size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="208.0" layoutY="45.0" text="The Revision Finder">
+        <font>
+          <Font name="Times New Roman" size="18.0"/>
+        </font>
+    </Label>
+    <Button onAction="#getRevisions" layoutX="296.0" layoutY="195.0" mnemonicParsing="false" prefHeight="26.0"
+            prefWidth="88.0" text="Select"/>
+    <Button layoutX="240" layoutY="500" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" onAction="#resetClick" text="Reset" />
 </Pane>

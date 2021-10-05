@@ -4,8 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -19,9 +21,9 @@ public class MainGUI extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("GUI.fxml")));
 
-        Scene scene = new Scene(root,300,275);
+        Scene scene = new Scene(root,552,551);
 
-        primaryStage.setTitle("fxml!");
+        primaryStage.setTitle("Wikipedia Revisions");
         primaryStage.setScene(scene);
         primaryStage.show();
 
