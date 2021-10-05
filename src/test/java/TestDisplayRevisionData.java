@@ -1,14 +1,8 @@
 import cs222.bsu.edu.wikipedia.DisplayRevisionData;
-import cs222.bsu.edu.wikipedia.Finder;
-import cs222.bsu.edu.wikipedia.GetJSONRevision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
+
 
 public class TestDisplayRevisionData {
 

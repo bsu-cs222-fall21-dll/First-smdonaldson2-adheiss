@@ -16,9 +16,7 @@ public class TestGetJSONData {
     }
     @Test
     public void TestConcatenate() throws MalformedURLException, URISyntaxException {
-        GetJSONRevision getJSONRevision = new GetJSONRevision();
         URL url = new URL("https://www.wikipedia.org/w/api.php");
-        GetJSONRevision getJSONData = new GetJSONRevision();
         URL newUrl = GetJSONRevision.concatenate(url, "Thanos");
         URL testURL = new URL("https://www.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Thanos&rvprop=timestamp%7Cuser%7Ccomment&rvlimit=30");
         Assertions.assertEquals(newUrl,testURL);
