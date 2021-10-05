@@ -1,7 +1,15 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.7'
+
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+
+javafx {
+    version = "17"
+    modules = [ 'javafx.controls', 'javafx.fxml']
+
 }
 
 group 'edu.bsu.cs222'
@@ -10,10 +18,11 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
 
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'com.jayway.jsonpath:json-path:2.6.0'
@@ -24,7 +33,7 @@ test{
     useJUnitPlatform()
 }
 
-javafx {
-    modules = ['javafx.controls','javafxml']
-    version = '13.0.2'
-}
+
+
+mainClassName = 'cs222.bsu.edu.wikipedia.MainGUI'
+
