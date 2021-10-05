@@ -1,8 +1,5 @@
 package cs222.bsu.edu.wikipedia;
 
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 
 import java.io.IOException;
 import java.net.URL;

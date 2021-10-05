@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
-import javax.swing.*;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
