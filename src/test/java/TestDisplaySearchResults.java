@@ -1,23 +1,15 @@
-import cs222.bsu.edu.wikipedia.DisplayRevisionData;
-import cs222.bsu.edu.wikipedia.GetJSONRevision;
-import cs222.bsu.edu.wikipedia.UserInput;
-import cs222.bsu.edu.wikipedia.searchJSON;
+import cs222.bsu.edu.wikipedia.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class TestDisplaySearchResults {
     @Test
-    public void TestSearchData() throws MalformedURLException {
-        String input = UserInput.getInput();
-        searchJSON searchJSON = new searchJSON();
-        String json = searchJSON.searchInput(input);
+    public void TestSearchData() {
+        DisplaySearchResults searchResults = new DisplaySearchResults();
+        String[] resultArr = searchResults.searchData("Dave");
 
-
-        DisplayRevisionData data = new DisplayRevisionData();
-        //class is void, it's a printing function
-        data.revisionData(json);
-
+        Assertions.assertEquals(resultArr[0], "Dave");
     }
+
 }

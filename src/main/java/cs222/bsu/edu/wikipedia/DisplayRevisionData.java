@@ -28,7 +28,7 @@ public class DisplayRevisionData {
 
     }
 
-    private String convertTime(String timestamp){
+    public String convertTime(String timestamp){
         SimpleDateFormat timeStampForm = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         timeStampForm.setTimeZone(TimeZone.getTimeZone("UTC"));
 
